@@ -8,8 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ZorkMainTest {
-    
+// FOR TESTING SNIPPETS OF CODE
+public class Test {
+
     public static void main(String[] args) {
         List<Room> zorkRooms = new ArrayList<Room>();
         
