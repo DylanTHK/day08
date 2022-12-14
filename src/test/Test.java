@@ -1,4 +1,4 @@
-package zork;
+package test;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+// import test.Room;
 
 // FOR TESTING SNIPPETS OF CODE
 public class Test {
@@ -18,14 +20,11 @@ public class Test {
             FileReader zorkFile = new FileReader("zork.txt"); // loads file
             BufferedReader myReader = new BufferedReader(zorkFile); // reads file
             
-            Room tempRoom = new Room(); // new instance of Room
-
-            List<String> lines = myReader.lines()
-                .toList();
-
-            for (String line : lines) {
-                System.out.println(line);
-            }
+            Room tempRoom = new Room("west_of_house"); // new instance of Room
+            tempRoom.setRoomName("West of House");
+            
+            
+        
 
         } catch (IOException e) {
             e.getMessage();

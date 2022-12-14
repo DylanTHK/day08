@@ -1,4 +1,4 @@
-package zork;
+package test;
 
 import java.util.*;
 
@@ -39,7 +39,7 @@ public class Room {
     }
 
     // getting location code of next location
-    public String getCode(String direction) {
+    public String getLocation(String direction) {
         String code = directions.get(direction);
         return code;
     }

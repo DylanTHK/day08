@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import static zork.KeyWords.*;
 
 public class ZorkMain {
         
@@ -21,15 +22,17 @@ public class ZorkMain {
 
             List<Room> zorkRooms = generateRooms(lines); // passing list of lines to get back list of Rooms
             String[] start = lines.get(lines.size() - 1).split(": ");
-            String startLocation = start[1];
+            String currentLocation = start[1];
 
             myReader.close();
             System.out.println(zorkRooms);
 
-            
-
-
-
+            // Loop to take user input
+            Boolean stop = false;
+            while (!stop) {
+                // take in input from user
+                
+            }
         } catch (IOException e) {
             e.getMessage();
 
@@ -54,26 +57,24 @@ public class ZorkMain {
 
                 // detect property and assign object
                 switch (property) {
-                    case "room":
+                    case ROOM:
                         tempRoom.setRoomCode(value); 
                         // System.out.println(tempRoom); 
                         break;
-                    case "name":
+                    case NAME:
                         tempRoom.setRoomName(value);
                         // System.out.println(tempRoom); 
                         break;
-                    case "description":
+                    case DESC:
                         String newValue = value.replaceAll("<break>", "\n");
                         tempRoom.setDescription(newValue);
                         break;
-                    case "direction":
+                    case DIRECTION:
                         String[] valueArray = value.split(" ");
                         tempRoom.setAvailableDirections(valueArray[0]);
                         tempRoom.setLocations(valueArray[1]);
                         // System.out.println(tempRoom); 
                         break;
-                    case "start":
-                        break; 
                     default:
                 } // switch
             } // if else
