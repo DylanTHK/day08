@@ -11,6 +11,7 @@ public class Controller {
         this.gameMemory = memory;
     }
 
+    
     // initiate game code from here
     public void start() {
         // print current location (code)
@@ -29,19 +30,29 @@ public class Controller {
         Scanner scanner = new Scanner(System.in);
         while(!stop) {
             String userInput = scanner.nextLine();
+            // get available directions from room instance key set
+            Set<String> availableDirection = currRoom.getMap().keySet();
             if (userInput.equals(EXIT)) {
                 // stop = true;
                 break;
-            };
-        }
+            } else if (availableDirection.contains(userInput)) {
+                // getting new room instance with direction
+                // (dir -> currRoom -> currRoom.getDirections() -> value = .getCode(dir)) gets value(code)
+                String currentCode = currRoom.getCode(userInput);
+                // use roomCode to update currRoom
+                optionalRoom = gameMemory.getRoom(currentCode);
+                if (optionalRoom.isPresent()) {
+                    currRoom = optionalRoom.get();
+                }
+            } else {
+                System.out.println("\n!=====WARNING=====!\nInvalid direction detected, please try again");
+            }
+
+            // // print Location
+            printLocation(currRoom);
+
+        } // while loop
         scanner.close();
-
-        
-        // use direction (retrieve code from direction) if any
-
-        // use location code to retrieve next location
-
-        // 
 
     }
 
@@ -51,7 +62,7 @@ public class Controller {
 
         System.out.printf("description: %s\n", room.getDescription());
 
-        Map<String, String> currMap = room.getDirections();
+        Map<String, String> currMap = room.getMap();
         for (Map.Entry<String, String> entry : currMap.entrySet()) {
             System.out.printf("direction: %s %s\n", entry.getKey(), entry.getValue());
         }

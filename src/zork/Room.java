@@ -33,8 +33,7 @@ public class Room {
         return code;
     }
 
-    public Map<String, String> getDirections() {
-        
+    public Map<String, String> getMap() {
         return directions;
     }
 
