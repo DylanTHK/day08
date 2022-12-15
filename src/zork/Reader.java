@@ -1,7 +1,6 @@
 package zork;
 
 import java.io.*;
-import java.util.*;
 import static zork.KeyWords.*;
 
 // TO PARSE AND CALL ROOM CLASS TO INSTANTIATE INFO FROM zork.txt
@@ -47,7 +46,7 @@ public class Reader {
                         // System.out.println(tempRoom); 
                         break;
                     case DESC:
-                        String newValue = value.replaceAll("<break>", "\n");
+                        String newValue = value.replaceAll("<break>", "\n\t     ");
                         tempRoom.setDescription(newValue);
                         break;
                     case DIRECTION:

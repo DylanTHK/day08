@@ -5,8 +5,7 @@ import java.util.*;
 public class GameMemory {
     
     // stores current Room's code
-    private String currentRoom;
-
+    private String currentRoom; // current location
     // links code to room instance <code, Room Instance>
     private Map<String, Room> roomMap = new HashMap<>();
 
@@ -26,9 +25,9 @@ public class GameMemory {
     }
     
     // get room instance, replaces with empty if unable to find key
-    public Optional<Room> getRoom(String direction) {
-		if (roomMap.containsKey(direction))
-			return Optional.of(roomMap.get(direction));
+    public Optional<Room> getRoom(String code) {
+		if (roomMap.containsKey(code))
+			return Optional.of(roomMap.get(code));
 		return Optional.empty();
 	}
 

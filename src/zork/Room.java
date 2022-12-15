@@ -27,6 +27,17 @@ public class Room {
         return description;
     }
 
+    // getting location code of next location
+    public String getCode(String direction) {
+        String code = directions.get(direction);
+        return code;
+    }
+
+    public Map<String, String> getDirections() {
+        
+        return directions;
+    }
+
     public void setRoomCode(String code) {
         this.roomCode = code;
     }
@@ -36,12 +47,6 @@ public class Room {
     }
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    // getting location code of next location
-    public String getCode(String direction) {
-        String code = directions.get(direction);
-        return code;
     }
 
     // adding directions and location codes
@@ -63,4 +68,6 @@ public class Room {
         }
 		return Optional.empty();
 	}
+
+
 }
